@@ -347,9 +347,10 @@ header {
 </div>
 
 <div class="video-background">
-  <video autoplay muted loop playsinline>
-    <source src="large.mp4" type="video/mp4">
-  </video>
+ <video autoplay muted loop playsinline id="background-video">
+  <source src="large.mp4" type="video/mp4">
+  Browser kamu tidak mendukung video.
+</video>
 </div>
 
 <audio id="music" loop>
@@ -490,21 +491,20 @@ header {
   }
 
   function bukaUndangan() {
-    const opening = document.getElementById("opening");
-    opening.classList.add("fade-out");
+  const opening = document.getElementById("opening");
+  opening.classList.add("fade-out");
+  document.getElementById('header').classList.add('reveal');
 
-    document.getElementById('header').classList.add('reveal');
-
-    setTimeout(() => {
-      opening.style.display = "none";
-      document.body.style.overflow = "auto";
-      music.play();
-    }, 1000);
-    music.play().catch(() => {
-  console.log("Autoplay ditolak, akan diputar setelah klik.");
-});
-
-  }
+  setTimeout(() => {
+    opening.style.display = "none";
+    document.body.style.overflow = "auto";
+    // Play musik setelah user klik
+    const music = document.getElementById("music");
+    music.play().catch(err => {
+      console.log("Tidak bisa autoplay:", err);
+    });
+  }, 1000);
+}
 
   document.body.style.overflow = "hidden";
 
