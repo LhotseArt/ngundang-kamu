@@ -11,47 +11,57 @@
 
   
   <style>
-.judul-mepandes {
+header.judul-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.header-content {
   position: relative;
   z-index: 2;
-  font-size: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* jarak antar elemen */
+}
+
+.judul-mepandes {
   font-family: 'Great Vibes', cursive;
-  margin-top: 50px;
-  margin-bottom: 180px;
+  font-size: clamp(32px, 8vw, 64px);
   color: #f6f6f4;
   text-shadow: 5px 5px 7px rgb(11, 2, 2);
 }
+
+.mandala-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo-belakang {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80%; /* Atur sesuai selera, default-nya 100% */
-  max-width: none;
-  transform: translate(-50%, -50%);
-  opacity: 0.90;
-  z-index: 1;
-  pointer-events: none;
+  width: 80%;
+  max-width: 400px;
+  opacity: 0.9;
 }
 
 .subtitle {
-  position: relative;
-  z-index: 2;
   font-style: italic;
-  font-size: 36px;
+  font-size: clamp(18px, 4vw, 36px);
   color: #fcf9f9;
   text-shadow: 1px 1px 3px rgb(11, 2, 2);
-  margin-top: 250px;  /* Tambah jarak dari Mandala */
-  margin-bottom: 100px;
 }
 
 .description {
-  position: relative;
-  z-index: 2;
-  font-size: 18px;
+  font-size: clamp(14px, 3vw, 20px);
   color: #fbf8f8;
   text-shadow: 1px 1px 3px rgb(11, 2, 2);
-  margin-top: -100px;
 }
+
 
 
 header {
@@ -104,8 +114,8 @@ header {
     }
 
     :root {
-      --primary-color: #fffefb;
-      --bg-overlay: rgb(0, 0, 0);
+      --primary-color: #45433e;
+      --bg-overlay: rgba(0, 0, 0, 0);
       --section-bg: rgba(171, 168, 168, 0.403);
     }
     * { box-sizing: border-box; }
@@ -114,41 +124,35 @@ header {
   body {
   background: url('video-placeholder.jpg') no-repeat center center fixed;
   background-size: contain;
-  background-color: #474343; /* warna latar belakang jika gambar tidak penuh */
+  background-color: #9a999900; /* warna latar belakang jika gambar tidak penuh */
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .video-background {
   position: fixed;
-  top: 80%;
-  left: 0;
+  inset: 0; /* ganti top, left, right, bottom jadi 0 semua */
   width: 100%;
   height: 100%;
-  object-fit: cover; /* biar full tanpa potong aneh */
   z-index: -1;
+  overflow: hidden;
 }
 
 .video-background video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.8); /* opsional untuk estetika */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* isi penuh layar */
+  object-position: center;
+  filter: brightness(0.8); /* opsional */
 }
+
 
     #opening {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: rgba(10, 9, 6, 0.184);
-      background-image: url('background.jpeg');
+      background-image: url('bgcover.jpeg');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -357,12 +361,15 @@ header {
 </div>
 
 <header id="header" class="judul-container">
-  <h1 class="judul-mepandes">Undangan</h1>
-  <img src="mandala.png" alt="Mandala Bali sebagai simbol adat" class="logo-belakang" />
-  <h1 class="subtitle">Upacara Adat</h1>
-  <h1 class="description">Mepandes / Potong Gigi</h1>
-
-  <p class="nama-tamu" id="tamu"></p>
+  <div class="header-content">
+    <h1 class="judul-mepandes">MEPANDES</h1>
+    <div class="mandala-wrapper">
+      <img src="mandala.png" alt="Mandala Bali sebagai simbol adat" class="logo-belakang" />
+    </div>
+    <h2 class="subtitle">Upacara Adat</h2>
+    <p class="description">Mepandes / Potong Gigi</p>
+    <p class="nama-tamu" id="tamu"></p>
+  </div>
 </header>
 
 
