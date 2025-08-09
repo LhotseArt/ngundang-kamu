@@ -352,9 +352,10 @@ header {
   </video>
 </div>
 
-<audio id="music" loop autoplay>
-  <source src="winter.mp3" type="audio/mp4">
+<audio id="music" loop>
+  <source src="winter.mp3" type="audio/mpeg">
 </audio>
+
 
 <div class="music-toggle" id="musicToggle">
   <button id="musicBtn" onclick="toggleMusic()">🔊</button>
@@ -362,14 +363,20 @@ header {
 
 <header id="header" class="judul-container">
   <div class="header-content">
-    <h1 class="judul-mepandes">MEPANDES</h1>
-    <div class="mandala-wrapper">
-      <img src="mandala.png" alt="Mandala Bali sebagai simbol adat" class="logo-belakang" />
-    </div>
-    <h2 class="subtitle">Upacara Adat</h2>
-    <p class="description">Mepandes / Potong Gigi</p>
-    <p class="nama-tamu" id="tamu"></p>
+  <!-- Judul Mepandes di atas mandala -->
+  <h1 class="judul-mepandes">MEPANDES</h1>
+
+  <!-- Mandala di tengah -->
+  <div class="mandala-wrapper">
+    <img src="mandala.png" alt="Mandala Bali sebagai simbol adat" class="logo-belakang" />
   </div>
+
+  <!-- Subtitle & Description di bawah mandala -->
+  <h2 class="subtitle">Upacara Adat</h2>
+  <p class="description">Mepandes / Potong Gigi</p>
+
+  <p class="nama-tamu" id="tamu"></p>
+</div>
 </header>
 
 
