@@ -11,16 +11,6 @@
 
   
   <style>
-    .bg-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('foto-background.jpg') center/cover no-repeat;
-  z-index: -2; /* di bawah semua konten */
-}
-
 header.judul-container {
   height: 100vh;
   display: flex;
@@ -132,11 +122,11 @@ header {
     html { scroll-behavior: smooth; transition: background-color 0.8s ease; }
     
   body {
-background-attachment: fixed;
-  background: url('foto-background.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  background-color: #000; /* fallback warna hitam */
-
+  background: url('video-placeholder.jpg') no-repeat center center fixed;
+  background-size: contain;
+  background-color: #9a999900; /* warna latar belakang jika gambar tidak penuh */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .video-background {
@@ -155,59 +145,33 @@ background-attachment: fixed;
   object-position: center;
   filter: brightness(0.8); /* opsional */
 }
+
+
     #opening {
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 100%; 
-  height: 100%;
-  background: rgba(10, 9, 6, 0.184);
-  background-image: url('bg.jpeg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  color: #ffffff;
-  text-shadow: 5px 5px 7px rgb(16, 7, 7);
-  font-family: 'Cormorant Garamond', serif;
-  text-align: center;
-  transition: all 1s ease;
-  backdrop-filter: blur(4px);
-}
-
-#opening.fade-out {
-  opacity: 0;
-  transform: scale(1.10);
-  pointer-events: none;
-}
-
-/* Tombol Buka Undangan */
-#opening button {
-  padding: 14px 32px;
-  background: linear-gradient(135deg, #d4af37, #f5d76e);
-  border: none;
-  color: #3a2f0b;
-  font-size: 20px;
-  font-weight: bold;
-  font-family: 'Cormorant Garamond', serif;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  transition: all 0.3s ease;
-}
-
-#opening button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(255, 223, 88, 0.8);
-}
-
-#opening button:active {
-  transform: scale(0.98);
-}
-
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(10, 9, 6, 0.184);
+      background-image: url('bgcover.jpeg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      color: #ffffff;
+      text-shadow: 5px 5px 7px rgb(16, 7, 7);
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      transition: all 1s ease;
+      backdrop-filter: blur(4px);
+    }
+    #opening.fade-out {
+      opacity: 0;
+      transform: scale(1.10);
+      pointer-events: none;
+    }
     header {
       height: 100vh;
       display: flex; flex-direction: column;
@@ -345,11 +309,11 @@ background-attachment: fixed;
   canvas.height = window.innerHeight;
 
   const particles = [];
-  for (let i = 0; i < 250; i++) {
+  for (let i = 0; i < 100; i++) {
     particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      r: Math.random() * 2 + 0.5,
+      r: Math.random() * 1.5 + 0.5,
       dx: (Math.random() - 0.5) * 0.5,
       dy: (Math.random() - 0.5) * 0.5,
     });
@@ -373,7 +337,6 @@ background-attachment: fixed;
   draw();
 </script>
 
-<div class="bg-fixed"></div>
 
 <div id="opening">
   <h1 style="font-family: 'Great Vibes', cursive; font-size: 48px;">MEPANDES</h1>
@@ -383,12 +346,12 @@ background-attachment: fixed;
   <button onclick="bukaUndangan()" style="margin-top: 30px; font-size: 18px;">Buka Undangan</button>
 </div>
 
-<!-- <div class="video-background">
+<div class="video-background">
  <video autoplay muted loop playsinline id="background-video">
   <source src="large.mp4" type="video/mp4">
   Browser kamu tidak mendukung video.
 </video>
-</div> -->
+</div>
 
 <audio id="music" loop>
   <source src="music.mp3" type="audio/mpeg">
